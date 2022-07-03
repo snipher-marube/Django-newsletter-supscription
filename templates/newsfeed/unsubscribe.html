@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <main>
+
+        <div class="main">
+
+            <div class="container">
+
+                <div class="aside">
+                    <div class="newsletter">
+
+                        <h2 class="h2">Newsletter</h2>
+
+                        <div class="wrapper">
+
+                            <p>
+                                Unsubscribe from our newsletter, this action will stop you from getting our latest updates.
+                            </p>
+
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div {% if message.tags %}  class="{{ message.tags}}" {% endif %} role="alert">
+                                        {{message}}
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <form method="POST" action="#">
+                                    {% csrf_token %}
+                                    {{ form }}
+                                    <button type="submit" class="btn btn-primary">Unsubscribe</button>
+                                </form>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+{% endblock %}

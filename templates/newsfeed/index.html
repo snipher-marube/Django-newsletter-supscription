@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="newsletter8 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h6 class="text-themecolor font-weight-normal text-uppercase">newsletter</h6>
+                    <h4 class="my-3">Stay informed about new and upcoming causes</h4>
+                    <h6 class="subtitle mt-3 font-weight-normal">It has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h6>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div {% if message.tags %}  class="{{ message.tags}}" {% endif %} role="alert">
+                                {{message}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <form method="POST" action="#" class="mt-4">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form }}
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-danger-gradiant btn-block btn-md text-uppercase text-white border-0" type="submit">Subscribe </button>
+                            </div>
+                            <div class="form-group">
+                                <div class="my-1">
+                                    <div class="custom-control custom-checkbox mr-sm-2">
+                                        <input id="customControlAutosizing1" class="custom-control-input" type="checkbox" />
+                                        <label class="custom-control-label" for="customControlAutosizing1">I have read and agree to the <a class="text-decoration-none" href="#">terms and conditions</a></label></div>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+                <div class="col-lg-6 ml-auto">
+                    <div class="d-block d-md-flex border-bottom pb-3 text-uppercase">
+                        <h6 class="no-shrink font-weight-medium align-self-center m-b-0">Latest News</h6><a class="ml-auto text-danger align-self-center text-decoration-none" href="#">View All</a>
+                    </div>
+                    <div class="row blog-row mt-4 mb-3">
+                        <div class="col-md-4"><a href="#"><img class="img-fluid" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img12.jpg" alt="wrapkit" /></a></div>
+                        <div class="col-md-8">
+                            <h5><a class="text-decoration-none" href="#">The Universe is all of time and space and its contents.</a></h5>
+                            <p>by <a class="text-decoration-none" href="#">Mark Freeman</a> / 23 May 2017</p>
+                        </div>
+                    </div>
+                    <div class="row blog-row my-3">
+                        <div class="col-md-4"><a href="#"><img class="img-fluid" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img13.jpg" alt="wrapkit" /></a></div>
+                        <div class="col-md-8">
+                            <h5><a class="text-decoration-none" href="#">Pellentesque mollis eros quis massa interdum porta et vel.</a></h5>
+                            <p>by <a class="text-decoration-none" href="#">Mark Freeman</a> / 23 May 2017</p>
+                        </div>
+                    </div>
+                    <div class="row blog-row my-3">
+                        <div class="col-md-4"><a href="#"><img class="img-fluid" src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/blog/blog-home/img14.jpg" alt="wrapkit" /></a></div>
+                        <div class="col-md-8">
+                            <h5><a class="text-decoration-none" href="#">Duis vel viverra quamam molesvulputate femy.</a></h5>
+                            <p>by <a class="text-decoration-none" href="#">Mark Freeman</a> / 23 May 2017</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
